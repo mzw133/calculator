@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings with KURABU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+            .layout-container {
+    display: flex;
+    width: 52%;
+    max-width: 1000px;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 0px 0px 30px 0px rgba(35, 35, 35, 0.10);
+    margin: 0 auto;  /* Centers the layout container horizontally on the page */
+}
+      .question-container,
+.savings-container {
+    width: 95%; 
+      }
+        .question-container {
+            display: flex;
+            max-width: 100%; 
+            padding: 16px;
+            align-items: center;
+            gap: 16px;
+            border-radius: 16px;
+            background: #FAFAFA;
+        }
+
+        .question-container p {
+            flex-grow: 1;
+            color: #232323;
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            margin-right: 16px;
+      max-width: 70%;  /* Adjusted to make text fit better */    overflow: hidden;  /* To avoid text overflow */
+    text-overflow: ellipsis;}
+
+        .input-container {
+            display:flex;
+          max-width: 200px;
+            width: 20%;
+            padding: 8px 12px;
+            justify-content: flex-end;
+            align-items: center;
+            flex-shrink: 0;
+            border-radius: 15px;
+            border: 0.8px solid #DDD;
+            background: #FFF;
+            margin-left: auto;
+        }
+
+        .input-container input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            color: #232323;
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            outline: none;
+            width: 100%;
+        }
+
+       
+    .input-container input::placeholder {
+        color: #919191;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+        .input-container span {
+            color: #232323;
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+        }
+
+        .label-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .label-container span {
+            color: #232323;
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+        }
+
+        .fas.fa-clock {
+            color: #6D47D6;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            margin-left: 16px;
+        }
+
+        .question-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            align-self: stretch;
+        }
+
+        .fas.fa-envelopes-bulk {
+            color: #6D47D6;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            margin-left: 16px;
+        }
+       .fas.fa-users {
+            color: #6D47D6;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            margin-left: 16px;
+        }
+      
+             .section-container {
+            display: flex;
+            padding: 32px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            align-self: stretch;
+        }
+          .vertical-padding {
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 32px;
+            padding-bottom: 32px;
+        }
+      
+      p.question {
+    width: 100%;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.savings-container {
+    display: flex;
+min-height: 60px;
+    width: 100%;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+     
+.column-1 {
+    color: #232323;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Open Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.column-2 i {
+    color: #096738;
+    text-align: center;
+    font-family: "Font Awesome 6 Free";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.column-2 span {
+    color: #096738;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+      .column-3 i {
+    color: #096738;
+    text-align: center;
+    font-family: "Font Awesome 6 Free";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.column-3 span {
+    color: #096738;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;  /* Assuming you want Open Sans for the number and unit */
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.column-2, .column-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 16px; 
+    background: #E3FFF2;
+}
+
+.button-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.button-column button {
+    color: #FFF;
+    background-color: #6D47D6;
+    border: none;
+    cursor: pointer;
+  padding: 16px 30px 17px 30px;
+    border-radius: 43px; 
+    transition: 0.3s;
+}
+
+.button-column button:hover {
+    background-color: #5540A7;
+}
+
+.button-label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+}
+      /* Media Queries */
+@media (max-width: 480px) {
+    /* Adjust styles for smaller screens */
+
+    .label-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .label-container span {
+        font-size: 24px; /* Make the text slightly smaller for smaller screens */
+    }
+
+    .question-container,
+    .savings-container {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    .question {
+        margin-right: 0;
+    }
+
+    .input-container {
+        margin-top: 10px; /* Add some spacing for vertical alignment */
+    }
+}
+
+    </style>
+</head>
+<body>
+<div class='layout-container'>
+<!-- Mitgliedverwaltung Section -->
+  <div class="section-container">
+    <div class="label-container">
+            <i class="fas fa-users icon"></i>
+        </i>
+        <span>Mitgliedverwaltung</span>
+    </div>
+    <div class="question-group">
+        <div class="question-container">
+            <p class="question">Wie viel neue Mitglieder melden sich pro Monat bei deinem Verein neu an?</p>
+            <div class="input-container">
+                <input type="text" placeholder="z.B. 100" id='A1'>
+                <span>Mitglieder</span>
+            </div>
+        </div>
+        <div class="question-container">
+            <p class="question">Wie viele Mitglieder treten pro Monat aus deinem Verein aus?</p>
+            <div class="input-container">
+                <input type="text" placeholder="z.B. 2" id='A2'>
+                <span>Mitglieder</span>
+            </div>
+        </div>
+        <div class="question-container">
+            <p class="question">Wie viel Bearbeitungszeit wird von der Verwaltung pro Mitgliedsantrag benötigt?</p>
+            <div class="input-container">
+                <input type="text" placeholder="z.B. 15" id='A3'>
+                <span>Minute(n)</span>
+            </div>
+        </div>
+        <div class="question-container">
+            <p class="question">Wie viel Bearbeitungszeit wird von der Verwaltung pro Vereinsautritt benötigt?</p>
+            <div class="input-container">
+                <input type="text" placeholder="z.B. 5" id='A4'>
+                <span>Minute(n)</span>
+            </div>
+        </div>
+    </div>
+</div>  
+    <!-- Papierverbrauch Section -->
+  <div class="section-container">
+    <div class="label-container">
+        <i class="fas fa-envelopes-bulk"></i>
+        <span>Papierverbrauch</span>
+    </div>
+    <div class="question-group">
+        <div class="question-container">
+            <p class="question">Wie viel Seiten Papier wird von der Verwaltung pro Mitgliedsantrag benötigt?</p>
+            <div class="input-container">
+                <input type="text" placeholder="z.B. 3" id='A5'>
+                <span>Seite(n)</span>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <p class="question">Wie viel Seiten Papier wird von der Verwaltung pro Vereinsaustritt benötigt?</p>
+            <div class="input-container">
+                <input type="text" placeholder="z.B. 1" id='A6'>
+                <span>Seite(n)</span>
+            </div>
+        </div>
+      
+        <div class="question-container">
+            <p class="question">Wie viele Briefe werden von der Verwaltung pro Mitgliedsantrag verschickt?</p>
+            <div class="input-container">
+                <input type="text" placeholder="z.B. 1" id='A7'>
+                <span>Brief(e)</span>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <p class="question">Wie viele Briefe werden von der Verwaltung pro Vereinsaustritt verschickt?</p>
+            <div class="input-container">
+                <input type="text" placeholder="z.B. 1" id='A8'> 
+                <span>Brief(e)</span>
+            </div>
+        </div>
+    </div>
+    <!-- Zeitkosten Section -->
+       <div class="section-container vertical-padding">
+    <div class="label-container">
+        <i class="fas fa-clock"></i>       
+        <span>Zeitkosten</span>
+    </div>
+    <div class="question-container">
+        <p class="question">Wie hoch ist dein Stundenlohn bzw. wie viel ist dir deine Arbeitsstunde wert?</p>
+        <div class="input-container">
+            <input type="text" placeholder="z.B. 15" id='A9'>
+            <span>€</span>
+        </div>
+    </div>
+         <!-- Savings Section -->
+<div class="section-container vertical-padding">
+    <div class="savings-container">
+        <div class="column-1">Ersparnis pro Jahr:</div>
+
+            <div class="column-2">
+    <i class="fas fa-piggy-bank"></i>
+     <span id="result">0</span>
+    <span>€</span>
+</div>
+        <div class="column-3">
+    <i class="fas fa-stopwatch"></i>
+    <span id=result1>0:00</span>
+<span>St.</span>
+</div>
+    </div>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    function calculate() {
+        let A1 = parseFloat(document.getElementById('A1').value) || 0;
+        let A2 = parseFloat(document.getElementById('A2').value) || 0;
+        let A3 = parseFloat(document.getElementById('A3').value) || 0;
+        let A4 = parseFloat(document.getElementById('A4').value) || 0;
+        let A6 = parseFloat(document.getElementById('A6').value) || 0;
+        let A7 = parseFloat(document.getElementById('A7').value) || 0;
+        let A8 = parseFloat(document.getElementById('A8').value) || 0;
+        let A9 = parseFloat(document.getElementById('A9').value) || 0;
+        
+        let sum1 = ((17/20)*A8) + ((2/25)*A8) + ((1/50)*A6) + ((1/20)*A6);
+        let sum2 = ((17/20)*A7) + ((2/25)*A7) + ((1/50)*A6) + ((1/20)*A6);
+        
+        let result = sum1*A2*12 + sum2*A1*12 + (A4/60*A2*A9*12) - (3/60*A2*A9*12) + (A3/60*A1*A9*12) - (3/60*A1*A9*12);
+        
+        // This is the value for column 3
+        let column3Value = (A4/60*A2*12) - (3/60*A2*12) + (A3/60*A1*12) - (3/60*A1*12);
+        
+        let hours = Math.floor(column3Value);
+        let minutes = Math.round((column3Value - hours) * 60);
+
+        // Displaying values
+        document.querySelector('.column-2 span').textContent = Math.round(result).toFixed(0); 
+        document.querySelector('.column-3 span').textContent = hours + ":" + minutes.toString().padStart(2, '0'); 
+    }
+   
+    let inputs = document.querySelectorAll('.input-container input');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calculate);
+    });
+});
+    </script>
+</body>
+</html>
+
